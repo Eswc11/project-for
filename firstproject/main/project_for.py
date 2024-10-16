@@ -3,7 +3,7 @@ grade_counts = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'F': 0}
 for _ in range(num_grades):
    while True:  
         try:
-            grade = int(input("Введите оценку (0-100): "))
+            grade = int(input("Input points (0-100): "))
             if 0 <= grade <= 100:
                 if 90 <= grade <= 100:
                     grade_counts['A'] += 1
