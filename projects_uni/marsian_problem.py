@@ -5,6 +5,7 @@ coordinates = [random.randint(1, 7) for _ in range(3)]
 print("Martian Cargo Finder!")
 print("Find all three boxes by entering their coordinates.")
 
+
 print(f"(DEBUG) Initial weights: {weights}")
 print(f"(DEBUG) Initial coordinates: {coordinates}")
 
