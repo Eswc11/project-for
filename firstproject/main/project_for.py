@@ -1,37 +1,47 @@
-num_grades = int(input("Input amount of points: "))
-grade_counts = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'F': 0}
-for _ in range(num_grades):
-   while True:  
+import random
+weights = [random.randint(50, 300) for _ in range(3)]
+coordinates = [random.randint(1, 7) for _ in range(3)]
+
+print("Martian Cargo Finder!")
+print("Find all three boxes by entering their coordinates.")
+
+print(f"(DEBUG) Initial weights: {weights}")
+print(f"(DEBUG) Initial coordinates: {coordinates}")
+
+while True:
+    a = int(input('Enter 1st number (1-7): '))
+    b = int(input('Enter 2nd number (1-7): '))
+    c = int(input('Enter 3rd number (1-7): '))
+    while True:
         try:
-            grade = int(input("Input points (0-100): "))
-            if 0 <= grade <= 100:
-                if 90 <= grade <= 100:
-                    grade_counts['A'] += 1
-                elif 75 <= grade <= 89:
-                    grade_counts['B'] += 1
-                elif 60 <= grade <= 74:
-                    grade_counts['C'] += 1
-                elif 50 <= grade <= 59:
-                    grade_counts['D'] += 1
-                else:
-                    grade_counts['F'] += 1
-                break
-            else:
-                print("Error")
+            a = int(input('Enter 1st number (1-7): '))
+            if not (1 <= a <= 7):
+                raise ValueError
+            b = int(input('Enter 2nd number (1-7): '))
+            if not (1 <= b <= 7):
+                raise ValueError
+            if a + b > 7:
+                raise ValueError("The sum of the coordinates is illogical. Try again.")
+            c = int(input('Enter 3rd number (1-7): '))
+            if not (1 <= c <= 7):
+                raise ValueError
+            break
         except ValueError:
-            choice = input("Invalid input. Do you want to continue? (Y/N): ")
-            if choice != 'Y':
-                print("The program stopped due to incorrect input.")
-                exit()
-total_grades = sum(grade_counts.values())
-for grade in grade_counts:
-    count = grade_counts[grade]
-    if total_grades > 0:
-        percentage = (count / total_grades) * 100
+            print("Error: Please enter numbers between 1 and 7.")
+
+    if sorted([a, b, c]) == sorted(coordinates):
+        total_weight = sum(weights)
+        print(f"Congratulations! You found all the boxes.")
+        print(f"Total weight: {total_weight} kg")
+        if total_weight == 713:
+            print("Success! The cargo has been fully recovered!")
+            break
+        else:
+            print(f"Error: The total weight ({total_weight} kg) does not match 713 kg.")
     else:
-        percentage = 0
-    if count == 1:
-        grade_word = "grade"
-    else:
-        grade_word = "grades"
-    print(f"{grade}: {count} {grade_word} ({percentage:.2f}%)")
+        print("Wrong coordinates! The boxes moved to new locations.")
+        coordinates = [random.randint(1, 7) for _ in range(3)]
+        weights = [random.randint(50, 300) for _ in range(3)]
+
+        # print(f"(DEBUG) New weights: {weights}")
+        # print(f"(DEBUG) New coordinates: {coordinates}")
