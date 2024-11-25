@@ -9,18 +9,20 @@ print("Find all three boxes by entering their coordinates.")
 print(f"(DEBUG) Initial weights: {weights}")
 print(f"(DEBUG) Initial coordinates: {coordinates}")
 
-
+a = int(input('Enter 1st number (1-7): '))
+b = int(input('Enter 2nd number (1-7): '))
+c = int(input('Enter 3rd number (1-7): '))
 while True:
     try:
-        a = int(input('Enter 1st number (1-7): '))
+
         if not (1 <= a <= 7):
             raise ValueError
-        b = int(input('Enter 2nd number (1-7): '))
+
         if not (1 <= b <= 7):
             raise ValueError
         if a + b > 7:
             raise ValueError("The sum of the coordinates is illogical. Try again.")
-        c = int(input('Enter 3rd number (1-7): '))
+
         if not (1 <= c <= 7):
             raise ValueError
         break
