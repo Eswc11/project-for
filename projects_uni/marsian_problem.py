@@ -2,7 +2,7 @@ import random
 weights = [random.randint(1, 711), random.randint(1, 712), 713]
 weights[2] -= weights[0] + weights[1]
 coordinates = random.sample(range(1, 8), 3)
-total_cargo, count = 0, 0
+total_cargo = 0
 
 print("Martian Cargo Finder!")
 print("Find all three boxes by entering their coordinates.")
