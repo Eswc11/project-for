@@ -20,7 +20,7 @@ while total_cargo != 713:
         print("Invalid input. Make sure coordinates are unique and between 1-7.")
         continue
     if sorted(guesses) == sorted(coordinates):
-        total_cargo = sum(weights)  # Подсчитываем общий вес коробок
+        total_cargo = sum(weights) 
         print(f"Congratulations! Total weight: {total_cargo} kg.")
         if total_cargo == 713:
             print("The cargo has been fully recovered!")
