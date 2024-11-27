@@ -31,5 +31,4 @@ for length, count in ships.items():
                     field[ny][nx] = str(length)
                 ship_positions.append(positions)
                 placed = True
-
 shots = 0
