@@ -1,4 +1,6 @@
 import random
+
+
 EMPTY, HIT, MISS, SUNK = "~", "X", "O", "S"
 
 
@@ -6,7 +8,6 @@ field = [[EMPTY for _ in range(7)] for _ in range(7)]
 player_field = [[EMPTY for _ in range(7)] for _ in range(7)]
 ships = {3: 1, 2: 2, 1: 4}
 ship_positions = []
-
 
 for length, count in ships.items():
     for _ in range(count):
