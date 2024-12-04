@@ -1,6 +1,6 @@
 import random
 
-
+name = input("Enter your name: ")
 EMPTY, HIT, MISS, SUNK = "~", "X", "O", "S"
 
 field = [[EMPTY for _ in range(7)] for _ in range(7)]
